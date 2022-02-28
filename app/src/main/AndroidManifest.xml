@@ -2,11 +2,12 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.google.mlkit.vision.demo"
+    package="com.teamSLL.mlkit"
     android:installLocation="auto">
     <!-- CameraX libraries require minSdkVersion 21, while this quickstart app
     supports low to 19. Needs to use overrideLibrary to make the merger tool
     ignore this conflict and import the libraries while keeping the app's lower
+    minSdkVersion value. In code, will check SDK version, before calling CameraX
     minSdkVersion value. In code, will check SDK version, before calling CameraX
     APIs. -->
     <uses-sdk
@@ -28,80 +29,27 @@
         android:theme="@style/Theme.AppCompat">
 
         <meta-data
-            android:name="com.google.android.gms.version"
+            android:name="com.teamSLL.android.gms.version"
             android:value="@integer/google_play_services_version"/>
 
         <!-- Optional: Add it to automatically download ML model to device after
           your app is installed.-->
         <meta-data
-            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:name="com.teamSLL.mlkit.DEPENDENCIES"
             android:value="barcode,face,ocr,ica,custom_ica"/>
 
-        <activity
-            android:name=".EntryChoiceActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme">
-        </activity>
 
         <activity
-            android:name=".java.ChooserActivity"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".java.CameraXLivePreviewActivity"
+            android:name="com.teamSLL.mlkit.CameraXLivePreviewActivity"
             android:exported="true"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".java.CameraXSourceDemoActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme">
-        </activity>
-
-        <activity
-            android:name=".java.StillImageActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme">
-        </activity>
-
-        <activity
-            android:name=".kotlin.ChooserActivity"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".kotlin.LivePreviewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme">
-        </activity>
-
-        <activity
-            android:name=".kotlin.CameraXLivePreviewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme">
-        </activity>
-
-        <activity
-            android:name=".kotlin.CameraXSourceDemoActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme">
-        </activity>
-
-        <activity
-            android:name=".kotlin.StillImageActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme">
-        </activity>
-
-        <activity
-            android:name=".preference.SettingsActivity"
-            android:exported="false"/>
 
     </application>
     <queries>

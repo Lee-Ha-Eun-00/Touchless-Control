@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\arist\\Desktop\\new\\mlkit-master\\mlkit-master\\android\\vision-quickstart\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lv\\values-lv.xml",
+            "outputFile": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lv\\values-lv.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\03266b5c61ddf4d2511dee6e22184dc7\\transformed\\core-1.3.1\\res\\values-lv\\values-lv.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5376",
+                        "endColumns": "100",
+                        "endOffsets": "5472"
+                    }
+                },
                 {
                     "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\f563d3d4a7d4ac06ca1fe3e805adeddb\\transformed\\jetified-play-services-basement-18.0.0\\res\\values-lv\\values.xml",
                     "from": {
@@ -35,23 +52,6 @@
                         "startOffsets": "2989,3096,3257,3390,3498,3640,3771,3888,4160,4335,4444,4613,4748,4917,5072,5136,5204",
                         "endColumns": "106,160,132,107,141,130,116,105,174,108,168,134,168,154,63,67,88",
                         "endOffsets": "3091,3252,3385,3493,3635,3766,3883,3989,4330,4439,4608,4743,4912,5067,5131,5199,5288"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\a4ddd5336e4c3374859fa27920a2dc67\\transformed\\core-1.6.0\\res\\values-lv\\values-lv.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5376",
-                        "endColumns": "100",
-                        "endOffsets": "5472"
                     }
                 },
                 {

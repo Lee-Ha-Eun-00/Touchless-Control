@@ -14,7 +14,7 @@
       app:layout_constraintBottom_toTopOf="@+id/control"
       app:layout_constraintTop_toTopOf="parent" />
 
-  <com.google.mlkit.vision.demo.GraphicOverlay
+  <com.teamSLL.mlkit.source.GraphicOverlay
       android:id="@+id/graphic_overlay"
       android:layout_width="0dp"
       android:layout_height="0dp"

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\arist\\Desktop\\new\\mlkit-master\\mlkit-master\\android\\vision-quickstart\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
+            "outputFile": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\81ccc4f9fde928c75264b65317f0ebeb\\transformed\\appcompat-1.2.0\\res\\values-zh-rHK\\values-zh-rHK.xml",
@@ -38,6 +38,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\03266b5c61ddf4d2511dee6e22184dc7\\transformed\\core-1.3.1\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "4571",
+                        "endColumns": "100",
+                        "endOffsets": "4667"
+                    }
+                },
+                {
                     "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\02cca94b4508c3c16b524a477e3cf9d8\\transformed\\jetified-play-services-base-18.0.1\\res\\values-zh-rHK\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -52,23 +69,6 @@
                         "startOffsets": "2666,2767,2895,3010,3112,3219,3335,3437,3638,3748,3849,3978,4093,4200,4308,4363,4420",
                         "endColumns": "100,127,114,101,106,115,101,92,109,100,128,114,106,107,54,56,71",
                         "endOffsets": "2762,2890,3005,3107,3214,3330,3432,3525,3743,3844,3973,4088,4195,4303,4358,4415,4487"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\a4ddd5336e4c3374859fa27920a2dc67\\transformed\\core-1.6.0\\res\\values-zh-rHK\\values-zh-rHK.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "4571",
-                        "endColumns": "100",
-                        "endOffsets": "4667"
                     }
                 }
             ]

@@ -4,7 +4,7 @@
     "type": "PACKAGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.google.mlkit.vision.demo",
+  "applicationId": "com.teamSLL.mlkit",
   "variantName": "debug",
   "elements": [
     {

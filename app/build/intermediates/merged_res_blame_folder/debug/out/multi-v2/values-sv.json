@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\arist\\Desktop\\new\\mlkit-master\\mlkit-master\\android\\vision-quickstart\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sv\\values-sv.xml",
+            "outputFile": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sv\\values-sv.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\03266b5c61ddf4d2511dee6e22184dc7\\transformed\\core-1.3.1\\res\\values-sv\\values-sv.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5064",
+                        "endColumns": "100",
+                        "endOffsets": "5160"
+                    }
+                },
                 {
                     "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\02cca94b4508c3c16b524a477e3cf9d8\\transformed\\jetified-play-services-base-18.0.1\\res\\values-sv\\values.xml",
                     "from": {
@@ -18,23 +35,6 @@
                         "startOffsets": "2778,2885,3042,3169,3279,3420,3545,3668,3920,4068,4176,4338,4466,4620,4776,4842,4905",
                         "endColumns": "106,156,126,109,140,124,122,103,147,107,161,127,153,155,65,62,78",
                         "endOffsets": "2880,3037,3164,3274,3415,3540,3663,3767,4063,4171,4333,4461,4615,4771,4837,4900,4979"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\a4ddd5336e4c3374859fa27920a2dc67\\transformed\\core-1.6.0\\res\\values-sv\\values-sv.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5064",
-                        "endColumns": "100",
-                        "endOffsets": "5160"
                     }
                 },
                 {

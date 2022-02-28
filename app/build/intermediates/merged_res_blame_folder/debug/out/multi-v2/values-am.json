@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\arist\\Desktop\\new\\mlkit-master\\mlkit-master\\android\\vision-quickstart\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-am\\values-am.xml",
+            "outputFile": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-am\\values-am.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\a4ddd5336e4c3374859fa27920a2dc67\\transformed\\core-1.6.0\\res\\values-am\\values-am.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "4809",
-                        "endColumns": "100",
-                        "endOffsets": "4905"
-                    }
-                },
                 {
                     "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\f563d3d4a7d4ac06ca1fe3e805adeddb\\transformed\\jetified-play-services-basement-18.0.0\\res\\values-am\\values.xml",
                     "from": {
@@ -52,6 +35,23 @@
                         "startOffsets": "2723,2825,2964,3086,3188,3315,3438,3546,3780,3908,4011,4156,4279,4414,4541,4601,4658",
                         "endColumns": "101,138,121,101,126,122,107,101,127,102,144,122,134,126,59,56,70",
                         "endOffsets": "2820,2959,3081,3183,3310,3433,3541,3643,3903,4006,4151,4274,4409,4536,4596,4653,4724"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\03266b5c61ddf4d2511dee6e22184dc7\\transformed\\core-1.3.1\\res\\values-am\\values-am.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "4809",
+                        "endColumns": "100",
+                        "endOffsets": "4905"
                     }
                 },
                 {

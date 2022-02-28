@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\arist\\Desktop\\new\\mlkit-master\\mlkit-master\\android\\vision-quickstart\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
+            "outputFile": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\a4ddd5336e4c3374859fa27920a2dc67\\transformed\\core-1.6.0\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5117",
-                        "endColumns": "100",
-                        "endOffsets": "5213"
-                    }
-                },
                 {
                     "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\81ccc4f9fde928c75264b65317f0ebeb\\transformed\\appcompat-1.2.0\\res\\values-vi\\values-vi.xml",
                     "from": {
@@ -52,6 +35,23 @@
                         "startOffsets": "2798,2900,3062,3187,3296,3461,3591,3710,3942,4115,4222,4379,4509,4668,4817,4885,4949",
                         "endColumns": "101,161,124,108,164,129,118,103,172,106,156,129,158,148,67,63,82",
                         "endOffsets": "2895,3057,3182,3291,3456,3586,3705,3809,4110,4217,4374,4504,4663,4812,4880,4944,5027"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\arist\\.gradle\\caches\\transforms-3\\03266b5c61ddf4d2511dee6e22184dc7\\transformed\\core-1.3.1\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5117",
+                        "endColumns": "100",
+                        "endOffsets": "5213"
                     }
                 },
                 {
