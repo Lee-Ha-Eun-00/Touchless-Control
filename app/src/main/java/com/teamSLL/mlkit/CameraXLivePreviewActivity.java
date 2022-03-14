@@ -20,7 +20,6 @@ import static android.Manifest.permission_group.CAMERA;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -30,11 +29,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Size;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.Preview;
@@ -48,9 +49,12 @@ import com.google.android.gms.common.annotation.KeepName;
 import com.google.mlkit.common.MlKitException;
 import com.google.mlkit.vision.face.Face;
 
+import com.teamSLL.mlkit.Interface.EyeRecognition;
+import com.teamSLL.mlkit.Interface.HeadRecognition;
+import com.teamSLL.mlkit.Interface.MotionRecongition;
+import com.teamSLL.mlkit.Interface.MouthRecognition;
 import com.teamSLL.mlkit.source.CameraXViewModel;
 import com.teamSLL.mlkit.source.GraphicOverlay;
-import com.teamSLL.mlkit.R;
 import com.teamSLL.mlkit.source.VisionImageProcessor;
 import com.teamSLL.mlkit.facedetector.FaceDetectorProcessor;
 import com.teamSLL.mlkit.preference.PreferenceUtils;
@@ -63,10 +67,9 @@ import java.util.List;
 @KeepName
 @RequiresApi(VERSION_CODES.LOLLIPOP)
 public final class CameraXLivePreviewActivity extends AppCompatActivity {
+
   private static final String TAG = "CameraXLivePreview";
-
   private static final String FACE_DETECTION = "Face Detection";
-
   private static final String STATE_SELECTED_MODEL = "selected_model";
 
   private PreviewView previewView;
@@ -79,7 +82,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
   private boolean needUpdateGraphicOverlayImageSourceInfo;
 
   private String selectedModel = FACE_DETECTION;
-  private int lensFacing = CameraSelector.LENS_FACING_FRONT;
+  private int lensFacing = CameraSelector.LENS_FACING_BACK;
   private CameraSelector cameraSelector;
 
   final int MY_PERMISSION_REQUEST_CODE = 100;
@@ -136,12 +139,27 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
     }
   }
 
+
+  private class WebViewClientClass extends WebViewClient {//페이지 이동
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+      Log.d("check URL",url);
+      view.loadUrl(url);
+      return true;
+    }
+  }
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.d(TAG, "onCreate");
-
     setContentView(R.layout.activity_vision_camerax_live_preview);
+
+    WebView webView = (WebView) findViewById(R.id.web);
+    webView.loadUrl("https://m.naver.com");
+    webView.setWebChromeClient(new WebChromeClient());
+    webView.setWebViewClient(new WebViewClientClass());
+
     previewView = findViewById(R.id.preview_view);
     if (previewView == null) {
       Log.d(TAG, "previewView is null");
@@ -233,6 +251,71 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
     cameraProvider.bindToLifecycle(/* lifecycleOwner= */ this, cameraSelector, previewUseCase);
   }
 
+  boolean flag = true;
+  private MotionRecongition MR = new MotionRecongition();
+
+  private void event(List<Face> faces){
+    if(faces == null || faces.isEmpty()) return;
+    Face face = faces.get(0);
+
+    TextView tvxyz = findViewById(R.id.xyz);
+    WebView webView = findViewById(R.id.web);
+    TextView tvside = findViewById(R.id.side);
+    TextView tvside2 = findViewById(R.id.side2);
+    TextView tveyeblink = findViewById(R.id.eyeblink);
+    TextView tvmouse = findViewById(R.id.mouse);
+
+    final int result = MR.getAllEvent(face);
+
+    if((result & MotionRecongition.HEAD_UP) != 0){
+      if(flag){ //연속해서 page up/down이 일어나면 애니메이션이 부자연스럽기에 한번은 무시하도록 함
+        flag = false;
+        webView.pageUp(false);
+      }else{
+        flag = true;
+      }
+      tvside2.setText("UP");
+    }else if((result & MotionRecongition.HEAD_DOWN) != 0){
+      if(flag){
+        flag = false;
+        webView.pageDown(false);
+      }else{
+        flag = true;
+      }
+      tvside2.setText("DOWN");
+    }else{
+      tvside2.setText("CENTER");
+    }
+
+    if((result & MotionRecongition.HEAD_RIGHT) != 0){
+      tvside.setText("RIGHT");
+    }else if((result & MotionRecongition.HEAD_LEFT) != 0){
+      tvside.setText("LEFT");
+    }else{
+      tvside.setText("CENTER");
+    }
+
+    if((result & MotionRecongition.EYE_CLOSED_SHORT) != 0){
+      tveyeblink.setText("EYE CLOSED SHORT");
+    }else if((result & MotionRecongition.EYE_CLOSED_LONG) != 0){
+      tveyeblink.setText("EYE CLOSED LONG");
+    }else{
+      tveyeblink.setText("EYE OPEN");
+    }
+
+    if((result & MotionRecongition.MOUSE_OPEN) != 0){
+      tvmouse.setText("MOUSE OPEN");
+    }else{
+      tvmouse.setText("MOUSE CLOSED");
+    }
+
+    tvxyz.setText(
+            face.getHeadEulerAngleX() + " \n"
+            + face.getHeadEulerAngleY() + " \n"
+            + face.getHeadEulerAngleZ()
+    );
+  }
+
   private void bindAnalysisUseCase() {
     if (cameraProvider == null) {
       return;
@@ -261,7 +344,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
         ContextCompat.getMainExecutor(this),
         imageProxy -> {
           if (needUpdateGraphicOverlayImageSourceInfo) {
-            boolean isImageFlipped = lensFacing == CameraSelector.LENS_FACING_FRONT;
+            boolean isImageFlipped = lensFacing == CameraSelector.LENS_FACING_BACK;
             int rotationDegrees = imageProxy.getImageInfo().getRotationDegrees();
             if (rotationDegrees == 0 || rotationDegrees == 180) {
               graphicOverlay.setImageSourceInfo(
@@ -275,30 +358,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
           try {
             imageProcessor.processImageProxy(imageProxy, graphicOverlay);
             List<Face> faces = ((FaceDetectorProcessor)imageProcessor).getFaces();
-            if(faces != null){
-              for(Face face : faces){
-                TextView tvxyz = findViewById(R.id.xyz);
-                TextView tvside = findViewById(R.id.side);
-
-                String text = "center";
-
-                text = face.getHeadEulerAngleX() + " \n"
-                        + face.getHeadEulerAngleY() + " \n"
-                        + face.getHeadEulerAngleZ();
-
-                tvxyz.setText(text);
-
-                double y = face.getHeadEulerAngleY();
-                int center = -10;
-                text = "center";
-                if(y < center - 12)   text = "right";
-                else if(y > center + 12) text = "left";
-
-                tvside.setText(text);
-                // -10 : center, 카메라가 왼쪽에 존재하기에 화면을 볼 경우, 카메라가 보기엔 약간 오른쪽을 보는것처럼 보임
-                
-              }
-            }
+            event(faces);
 
           } catch (MlKitException e) {
             Log.e(TAG, "Failed to process image. Error: " + e.getLocalizedMessage());

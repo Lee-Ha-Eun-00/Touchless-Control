@@ -1019,6 +1019,7 @@ id end
 id end_padder
 id expand_activities_button
 id expanded_menu
+id eyeblink
 id fill
 id fillCenter
 id fillEnd
@@ -1066,6 +1067,7 @@ id message
 id middle
 id mixed
 id motion_base
+id mouse
 id multiply
 id never
 id none
@@ -1115,6 +1117,7 @@ id showCustom
 id showHome
 id showTitle
 id side
+id side2
 id sin
 id spacer
 id spline
@@ -1165,6 +1168,7 @@ id useLogo
 id video
 id view_tree_view_model_store_owner
 id visible
+id web
 id wide
 id withText
 id wrap

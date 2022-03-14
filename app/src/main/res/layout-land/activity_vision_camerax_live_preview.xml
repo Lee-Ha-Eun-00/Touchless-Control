@@ -6,19 +6,30 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true">
 
+  <WebView
+      android:id="@+id/web"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      app:layout_constraintEnd_toEndOf="@+id/preview_view"
+      app:layout_constraintStart_toStartOf="parent" />
+
   <androidx.camera.view.PreviewView
       android:id="@+id/preview_view"
       android:layout_width="0dp"
       android:layout_height="match_parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/control"/>
+      android:visibility="invisible"
+      app:layout_constraintEnd_toStartOf="@+id/control"
+      app:layout_constraintStart_toStartOf="parent">
+
+  </androidx.camera.view.PreviewView>
 
   <com.teamSLL.mlkit.source.GraphicOverlay
       android:id="@+id/graphic_overlay"
       android:layout_width="0dp"
       android:layout_height="match_parent"
-      app:layout_constraintStart_toStartOf="@id/preview_view"
-      app:layout_constraintEnd_toEndOf="@id/preview_view" />
+      android:visibility="invisible"
+      app:layout_constraintEnd_toEndOf="@id/preview_view"
+      app:layout_constraintStart_toStartOf="@id/preview_view" />
 
   <FrameLayout
       android:id="@id/control"
@@ -39,6 +50,30 @@
           android:layout_height="wrap_content"
           android:layout_weight="1"
           android:text="center"
+          android:textSize="30sp" />
+
+      <TextView
+          android:id="@+id/side2"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="center"
+          android:textSize="30sp" />
+
+      <TextView
+          android:id="@+id/eyeblink"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="eye blink"
+          android:textSize="30sp" />
+
+      <TextView
+          android:id="@+id/mouse"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="mouse"
           android:textSize="30sp" />
 
       <TextView
