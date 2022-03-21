@@ -29,9 +29,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Size;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -45,14 +47,22 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.common.annotation.KeepName;
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.google.mlkit.common.MlKitException;
 import com.google.mlkit.vision.face.Face;
 
+import com.squareup.picasso.Picasso;
 import com.teamSLL.mlkit.Interface.EyeRecognition;
 import com.teamSLL.mlkit.Interface.HeadRecognition;
 import com.teamSLL.mlkit.Interface.MotionRecongition;
 import com.teamSLL.mlkit.Interface.MouthRecognition;
+import com.teamSLL.mlkit.adapter.VideoInfo;
+import com.teamSLL.mlkit.adapter.recyclerViewAdapter;
 import com.teamSLL.mlkit.source.CameraXViewModel;
 import com.teamSLL.mlkit.source.GraphicOverlay;
 import com.teamSLL.mlkit.source.VisionImageProcessor;
@@ -60,10 +70,15 @@ import com.teamSLL.mlkit.facedetector.FaceDetectorProcessor;
 import com.teamSLL.mlkit.preference.PreferenceUtils;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
-
-/** Live preview demo app for ML Kit APIs using CameraX. */
+/*
+* initUI : youtube UI 관련 초기화 함수
+* onCreate : 생성, 초기화
+* bindAnalysisUseCase : 반복하며, 얼굴 움직임을 읽는 함수
+* event : 얼굴 분석한 결과에 따라 움직임을 판별해 실제 액션을 하는 함수
+* */
 @KeepName
 @RequiresApi(VERSION_CODES.LOLLIPOP)
 public final class CameraXLivePreviewActivity extends AppCompatActivity {
@@ -74,6 +89,13 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
 
   private PreviewView previewView;
   private GraphicOverlay graphicOverlay;
+
+  // youtube UI items
+  Double nowPosition = 1.0;
+  int MAX_LEN = 10;
+  private RecyclerView recyclerView;
+  private recyclerViewAdapter adapter;
+  private MotionRecongition MR = new MotionRecongition();
 
   @Nullable private ProcessCameraProvider cameraProvider;
   @Nullable private Preview previewUseCase;
@@ -139,14 +161,29 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
     }
   }
 
-
-  private class WebViewClientClass extends WebViewClient {//페이지 이동
-    @Override
-    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-      Log.d("check URL",url);
-      view.loadUrl(url);
-      return true;
+  private void initUI(){
+    ArrayList<VideoInfo> VideoInfos = new ArrayList<>();
+    VideoInfos.add(new VideoInfo("", "", "", "", "", ""));
+    for(int i=1;i<MAX_LEN;i+=2){
+      VideoInfos.add(new VideoInfo("https://i.ytimg.com/vi/K2j20U_bgHw/hqdefault.jpg", "https://yt3.ggpht.com/ytc/AKedOLT3cjJ_4Dw2S-TsK94Uvze75mHEfyc9-JHnNP8I=s800-c-k-c0x00ffffff-no-rj", Integer.toString(i), "channelID", "videoViews", "uploadTime"));
+      VideoInfos.add(new VideoInfo("https://i.ytimg.com/vi/sm7MPK5FqV8/hqdefault.jpg", "https://yt3.ggpht.com/ytc/AKedOLTMYlIja6GQgtbi9HR7BecORXlMHEWR94Pp-tQGgQ=s800-c-k-c0x00ffffff-no-rj-mo", Integer.toString(i+1), "channelID", "videoViews", "uploadTime"));
     }
+    VideoInfos.add(new VideoInfo("", "", "", "", "", ""));
+
+    // set up the RecyclerView
+    recyclerView = findViewById(R.id.rvVideos);
+    LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+    recyclerView.setLayoutManager(horizontalLayoutManager);
+
+    adapter = new recyclerViewAdapter(this, VideoInfos);
+    adapter.setClickListener(new recyclerViewAdapter.ItemClickListener() {
+      @Override
+      public void onItemClick(View view, int position) {
+        if(position == 0 || position == MAX_LEN + 1) return;
+        Toast.makeText(CameraXLivePreviewActivity.this, "You clicked " + adapter.getItem(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
+      }});
+
+    recyclerView.setAdapter(adapter);
   }
 
   @Override
@@ -155,10 +192,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
     Log.d(TAG, "onCreate");
     setContentView(R.layout.activity_vision_camerax_live_preview);
 
-    WebView webView = (WebView) findViewById(R.id.web);
-    webView.loadUrl("https://m.naver.com");
-    webView.setWebChromeClient(new WebChromeClient());
-    webView.setWebViewClient(new WebViewClientClass());
+    initUI();
 
     previewView = findViewById(R.id.preview_view);
     if (previewView == null) {
@@ -192,6 +226,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
     }
 
   }
+
 
   @Override
   protected void onSaveInstanceState(@NonNull Bundle bundle) {
@@ -251,69 +286,38 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
     cameraProvider.bindToLifecycle(/* lifecycleOwner= */ this, cameraSelector, previewUseCase);
   }
 
-  boolean flag = true;
-  private MotionRecongition MR = new MotionRecongition();
-
   private void event(List<Face> faces){
     if(faces == null || faces.isEmpty()) return;
     Face face = faces.get(0);
 
-    TextView tvxyz = findViewById(R.id.xyz);
-    WebView webView = findViewById(R.id.web);
-    TextView tvside = findViewById(R.id.side);
-    TextView tvside2 = findViewById(R.id.side2);
-    TextView tveyeblink = findViewById(R.id.eyeblink);
-    TextView tvmouse = findViewById(R.id.mouse);
-
     final int result = MR.getAllEvent(face);
 
     if((result & MotionRecongition.HEAD_UP) != 0){
-      if(flag){ //연속해서 page up/down이 일어나면 애니메이션이 부자연스럽기에 한번은 무시하도록 함
-        flag = false;
-        webView.pageUp(false);
-      }else{
-        flag = true;
-      }
-      tvside2.setText("UP");
     }else if((result & MotionRecongition.HEAD_DOWN) != 0){
-      if(flag){
-        flag = false;
-        webView.pageDown(false);
-      }else{
-        flag = true;
-      }
-      tvside2.setText("DOWN");
     }else{
-      tvside2.setText("CENTER");
     }
 
     if((result & MotionRecongition.HEAD_RIGHT) != 0){
-      tvside.setText("RIGHT");
+      nowPosition += 0.5;
+      if(nowPosition > MAX_LEN) nowPosition = MAX_LEN + 0.0;
+      recyclerView.smoothScrollToPosition(nowPosition.intValue()+1);
     }else if((result & MotionRecongition.HEAD_LEFT) != 0){
-      tvside.setText("LEFT");
+      nowPosition -= 0.5;
+      if(nowPosition<1) nowPosition = 1.0;
+      recyclerView.smoothScrollToPosition(nowPosition.intValue()-1);
     }else{
-      tvside.setText("CENTER");
     }
 
     if((result & MotionRecongition.EYE_CLOSED_SHORT) != 0){
-      tveyeblink.setText("EYE CLOSED SHORT");
     }else if((result & MotionRecongition.EYE_CLOSED_LONG) != 0){
-      tveyeblink.setText("EYE CLOSED LONG");
     }else{
-      tveyeblink.setText("EYE OPEN");
     }
 
     if((result & MotionRecongition.MOUSE_OPEN) != 0){
-      tvmouse.setText("MOUSE OPEN");
+      if(nowPosition == 0 || nowPosition == MAX_LEN+1) return;
+      Toast.makeText(CameraXLivePreviewActivity.this, "You clicked " + adapter.getItem(nowPosition.intValue()) + " on item position " + nowPosition, Toast.LENGTH_SHORT).show();
     }else{
-      tvmouse.setText("MOUSE CLOSED");
     }
-
-    tvxyz.setText(
-            face.getHeadEulerAngleX() + " \n"
-            + face.getHeadEulerAngleY() + " \n"
-            + face.getHeadEulerAngleZ()
-    );
   }
 
   private void bindAnalysisUseCase() {
@@ -358,6 +362,8 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
           try {
             imageProcessor.processImageProxy(imageProxy, graphicOverlay);
             List<Face> faces = ((FaceDetectorProcessor)imageProcessor).getFaces();
+
+            System.out.println(nowPosition);
             event(faces);
 
           } catch (MlKitException e) {
@@ -369,4 +375,5 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity {
 
     cameraProvider.bindToLifecycle(/* lifecycleOwner= */ this, cameraSelector, analysisUseCase);
   }
+
 }

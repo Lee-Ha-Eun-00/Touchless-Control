@@ -4,10 +4,6 @@
         "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_settings_white_24dp.png.flat",
-        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_settings_white_24dp.png"
-    },
-    {
         "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_vision_camerax_live_preview.xml.flat",
         "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\layout\\activity_vision_camerax_live_preview.xml"
     },
@@ -28,16 +24,8 @@
         "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-xhdpi\\ic_switch_camera_white_48dp.xml"
     },
     {
-        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_switch_camera_white_48dp.xml.flat",
-        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-mdpi\\ic_switch_camera_white_48dp.xml"
-    },
-    {
-        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_settings_white_24dp.png.flat",
-        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-mdpi\\ic_settings_white_24dp.png"
-    },
-    {
-        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_switch_camera_white_48dp.xml.flat",
-        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_switch_camera_white_48dp.xml"
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_item_2.xml.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\layout\\recyclerview_item_2.xml"
     },
     {
         "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.png.flat",
@@ -52,24 +40,8 @@
         "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_settings_white_24dp.png.flat",
-        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-xxhdpi\\ic_settings_white_24dp.png"
-    },
-    {
         "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\layout-land_activity_vision_camerax_live_preview.xml.flat",
         "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\layout-land\\activity_vision_camerax_live_preview.xml"
-    },
-    {
-        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_settings_white_24dp.png.flat",
-        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-xhdpi\\ic_settings_white_24dp.png"
-    },
-    {
-        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable_logo_mlkit.xml.flat",
-        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable\\logo_mlkit.xml"
-    },
-    {
-        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_switch_camera_white_48dp_inset.png.flat",
-        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-mdpi\\ic_switch_camera_white_48dp_inset.png"
     },
     {
         "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_switch_camera_white_48dp_inset.png.flat",
@@ -78,6 +50,10 @@
     {
         "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable_transparent.png.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable\\transparent.png"
     },
     {
         "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_switch_camera_white_48dp_inset.png.flat",
@@ -90,5 +66,53 @@
     {
         "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_settings_white_24dp.png.flat",
         "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-hdpi\\ic_settings_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_settings_white_24dp.png.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_settings_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_item.xml.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\layout\\recyclerview_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_search.xml.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable\\ic_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\layout_recyclerview_item_1.xml.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\layout\\recyclerview_item_1.xml"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_switch_camera_white_48dp.xml.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-mdpi\\ic_switch_camera_white_48dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_settings_white_24dp.png.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-mdpi\\ic_settings_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_switch_camera_white_48dp.xml.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_switch_camera_white_48dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\layout_youtube_main_page.xml.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\layout\\youtube_main_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_settings_white_24dp.png.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-xxhdpi\\ic_settings_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_settings_white_24dp.png.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-xhdpi\\ic_settings_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable_logo_mlkit.xml.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable\\logo_mlkit.xml"
+    },
+    {
+        "merged": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_switch_camera_white_48dp_inset.png.flat",
+        "source": "C:\\Users\\arist\\Desktop\\new\\mlkit-quickstart\\app\\src\\main\\res\\drawable-mdpi\\ic_switch_camera_white_48dp_inset.png"
     }
 ]
