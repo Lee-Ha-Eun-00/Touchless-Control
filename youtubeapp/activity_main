@@ -12,8 +12,7 @@
     <EditText
         android:id="@+id/dateText"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-    />
+        android:layout_height="60dp" />
 
     <TextView
         android:id="@+id/output"

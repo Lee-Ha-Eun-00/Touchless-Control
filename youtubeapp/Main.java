@@ -44,7 +44,7 @@ public class MainActivity extends YouTubeBaseActivity {
 
 
 
-    //객체 선언
+    //객체 선언.
     YouTubePlayerView playerView;
     YouTubePlayer player;
     //유튜브 API KEY와 동영상 ID 변수 설정
