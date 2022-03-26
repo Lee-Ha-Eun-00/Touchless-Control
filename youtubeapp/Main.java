@@ -43,7 +43,6 @@ public class MainActivity extends YouTubeBaseActivity {
     private static YouTube youtube;
 
 
-
     //객체 선언.
     YouTubePlayerView playerView;
     YouTubePlayer player;
